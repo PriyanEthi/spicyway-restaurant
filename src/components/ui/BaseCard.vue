@@ -3,10 +3,15 @@
     <!-- Image Section -->
     <div v-if="$slots.image" class="relative aspect-w-16 aspect-h-12 overflow-hidden">
       <slot name="image"></slot>
-      <!-- Overlay Action -->
-      <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+      <!-- Overlay Action (Desktop) -->
+      <div class="hidden lg:flex absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-center justify-center">
         <slot name="overlay"></slot>
       </div>
+    </div>
+
+    <!-- Mobile Action Button -->
+    <div class="lg:hidden px-6 pt-4 pb-0">
+      <slot name="overlay"></slot>
     </div>
 
     <!-- Content Section -->

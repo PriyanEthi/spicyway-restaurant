@@ -30,21 +30,29 @@
             <img :src="item.image" :alt="item.name" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
           </template>
           <template #overlay>
-              <BaseButton size="sm" @click="addToCart(item)" variant="white">Add to Cart</BaseButton>
+              <BaseButton size="sm" @click="addToCart(item)" variant="white" class="w-full lg:w-auto">Add to Cart</BaseButton>
           </template>
           <template #header>
-            <div class="flex justify-between items-start">
-              <h3 class="text-xl font-heading font-bold text-white uppercase tracking-wide">{{ item.name }}</h3>
-              <span class="text-primary font-heading font-bold text-xl">Rs. {{ item.price.toFixed(2) }}</span>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-heading font-bold text-white uppercase tracking-wide leading-tight">{{ item.name }}</h3>
+              <span class="text-primary font-heading font-bold text-xl whitespace-nowrap ml-4">Rs. {{ item.price.toFixed(2) }}</span>
             </div>
           </template>
-          <p class="mb-2">{{ item.description }}</p>
+          <p class="mb-4 text-gray-400 leading-relaxed">{{ item.description }}</p>
           <template #footer>
-            <span class="text-xs font-bold uppercase tracking-widest text-gray-500">{{ item.category }}</span>
+            <span class="text-xs font-bold uppercase tracking-widest text-gray-500 bg-white/5 px-3 py-1 rounded-full">{{ item.category }}</span>
           </template>
         </BaseCard>
       </div>
     </div>
+
+    <Toast 
+      :show="showToast" 
+      :title="toastTitle" 
+      :message="toastMessage" 
+      :type="toastType" 
+      @close="showToast = false" 
+    />
   </div>
 </template>
 
@@ -52,11 +60,18 @@
 import { ref, computed } from 'vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import BaseCard from '@/components/ui/BaseCard.vue'
+import Toast from '@/components/ui/Toast.vue'
 import { useCartStore } from '@/stores/cart'
 import menuData from '@/data/menu.json'
 
 const cartStore = useCartStore()
 const activeCategory = ref('All')
+
+// Toast State
+const showToast = ref(false)
+const toastTitle = ref('')
+const toastMessage = ref('')
+const toastType = ref('success')
 
 const categories = ['All', 'Starters', 'Mains', 'Desserts', 'Drinks']
 
@@ -69,5 +84,14 @@ const filteredItems = computed(() => {
 
 function addToCart(item) {
   cartStore.addToCart(item)
+  showToast.value = true
+  toastTitle.value = 'Added to Cart'
+  toastMessage.value = `${item.name} has been added to your cart.`
+  toastType.value = 'success'
+  
+  // Auto hide is handled by the Toast component, but we can reset here if needed
+  setTimeout(() => {
+    showToast.value = false
+  }, 3000)
 }
 </script>
