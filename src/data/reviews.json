@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Sarah Johnson",
+    "rating": 5,
+    "date": "2024-03-15",
+    "comment": "Absolutely amazing! The Spicy Chicken Wings are to die for. Best spicy food in town, hands down.",
+    "avatar": "https://randomuser.me/api/portraits/women/1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Michael Chen",
+    "rating": 4,
+    "date": "2024-03-10",
+    "comment": "Great atmosphere and friendly staff. The Szechuan Beef was authentic and spicy. Will definitely come back.",
+    "avatar": "https://randomuser.me/api/portraits/men/2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Emily Davis",
+    "rating": 5,
+    "date": "2024-03-05",
+    "comment": "I love the dark theme of the restaurant, very classy. The Volcano Ramen is a must-try!",
+    "avatar": "https://randomuser.me/api/portraits/women/3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "David Wilson",
+    "rating": 5,
+    "date": "2024-02-28",
+    "comment": "Fast delivery and the food was still piping hot. The Chili Chocolate Cake is a surprising delight.",
+    "avatar": "https://randomuser.me/api/portraits/men/4.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Jessica Brown",
+    "rating": 4,
+    "date": "2024-02-20",
+    "comment": "Good food, but be careful with the spice levels! They mean business.",
+    "avatar": "https://randomuser.me/api/portraits/women/5.jpg"
+  }
+]
